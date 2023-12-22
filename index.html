@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            margin: 0;
+            text-align: center;
+        }
+        body{
+            background-color: #111;
+        }
+        .container{
+            margin: auto;
+            margin-top: 20vh;
+            background-color: #222;
+            max-width: 30%;
+            border-radius: 4px;
+        }
+        header{
+            padding-top: 2.5vh;
+            color: #fff;
+        }
+        #input{
+            padding: 15px;
+        }
+        main h3{
+            color: #cdcdcd;
+        }
+        #tentativa{
+            border: none;
+            outline: none;
+            border-bottom: 2px solid aliceblue;
+            border-radius: 5px;
+            color: #111;
+            padding: 10px;
+        }
+        #div-button{
+            margin: 10px;
+        }
+        #button{
+            padding: 10px;
+            width: 100px;
+            background-color: #696969;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            box-shadow: 2px 3px #707070;
+            cursor: pointer;
+        }
+        #result{
+            color: #fff;
+            padding: 20px;
+            font-size: 30px;
+        }
+    </style>
+    <title>Descobrir o Número!</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                Adivinhe o Número
+            </h1>
+            <h3>
+                Um número aleatório entre 1 e 100 foi sortido
+            </h3>
+        </header>
+    
+        <main>
+            <div id="input">
+                <input type="number" id="tentativa">
+    
+                <div id="div-button">
+                    <button type="button" onclick="Tentar()" id="button">
+                        Tentativa
+                    </button>
+                </div>
+            </div>
+    
+            <div id="result" >
+                <!-- O resultado irá aparecer aqui! -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const number = Math.random() * 100
+        console.log(number)
+
+        function Tentar(){
+            const tentativa = document.getElementById('tentativa').value
+            const result = document.getElementById('result')
+
+            if(tentativa < number.toFixed()){
+                result.innerHTML = "O número é maior!"
+                result.style.color = '#ff4122'
+                result.style.transition = 'ease-in-out 0.5s'
+            }else if(tentativa > number.toFixed()){
+                result.innerHTML = "O número é menor!"
+                result.style.color = '#ff4122'
+                result.style.transition = 'ease-in-out 0.5s'
+            }else{
+                result.innerHTML = "PARABÉNS! Você acertou meu número!"
+                result.style.color = '#90EE90'
+                result.style.transition = 'ease-in-out 0.5s'
+            }
+        }
+    </script>
+</body>
+</html>
